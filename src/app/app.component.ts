@@ -10,7 +10,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   name = 'codemirror MergeView';
 
   /** Référence de l'élément qui contiendra le composant codeMirror */
-  @ViewChild('container') container: any;
+  @ViewChild('codemirror') codemirrorRef: any;
 
   /** Ancien modèle **/
   private oldModel: any;
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     //Mise en cycle
     setTimeout(() =>
       //Chargement du composant MergeView dans le container
-      CodeMirror.MergeView(this.container.nativeElement, {
+      CodeMirror.MergeView(this.codemirrorRef.nativeElement, {
         ...this.options,
         origLeft: this.oldModel,
         value: this.newModel,
